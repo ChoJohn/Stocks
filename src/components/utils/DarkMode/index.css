@@ -1,0 +1,66 @@
+.dark-mode {
+    background-color: #171717;
+    color: #E8E8E8;
+}
+
+.dark-mode-header {
+    background-color: #171717;
+    color: white;
+}
+
+.dark-mode-out {
+    background-color: #171717;
+    color: #E8E8E8;
+    box-shadow:  10px 10px 20px #0d0d0d,
+                -10px -10px 20px #212121;            
+}
+
+.dark-mode-in {
+    background-color: #171717;
+    color: #E8E8E8;
+    box-shadow: inset 10px 10px 20px #090909,
+                inset -10px -10px 20px #252525;
+}
+
+.dark-mode-nav {
+    background-color: #171717;
+    color: #E8E8E8;
+    box-shadow: -10px 10px 20px #0d0d0d, 
+                -10px -10px 20px #212121; 
+}
+
+.light-mode {
+    background: #cfe2fc;
+    color: #4a6eb3;
+}
+
+.light-mode-out {
+    background: #cfe2fc;
+    color: #4a6eb3;
+    box-shadow: 10px 10px 20px #b4cdf3,
+                -10px -10px 20px #cadbf7;
+}
+
+.light-mode-in {
+    background: #cfe2fc;
+    color: #4a6eb3;
+    box-shadow: inset 10px 10px 20px #b4cdf3,
+                inset -10px -10px 20px #ddeafd;
+}
+
+.light-mode-nav {
+    background-color: #cfe2fc;
+    color: #4a6eb3;
+    box-shadow: -20px 0 20px 0 #b4cdf3, 
+                -10px -10px 20px 10px #cfe2fc; 
+}
+
+.dark-mode-top::before,
+.dark-mode-bottom::before {
+    box-shadow: 10px 10px 5px 100px #171717;
+}
+
+.light-mode-top::before,
+.light-mode-bottom::before {
+    box-shadow: 10px 10px 5px 100px #cfe2fc;
+}

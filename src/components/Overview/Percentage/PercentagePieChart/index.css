@@ -1,0 +1,13 @@
+.pie-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pie-chart-card {
+    width: 362px;
+    height: 362px;
+    border-radius: 100%;
+}

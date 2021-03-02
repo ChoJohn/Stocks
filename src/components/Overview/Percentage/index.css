@@ -1,0 +1,29 @@
+.percentage-card {
+    display: grid;
+    grid-template-areas: 't t'
+                         'p s';
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50px auto;
+    
+    min-height: 675px;
+    padding: 50px;
+    margin: 25px 50px 25px 0;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+
+.overview-font {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    grid-area: t;
+    text-align: left;
+}
+
+.percentage-pie-chart {
+    grid-area: p;
+}
+
+.percentage-list {
+    grid-area: s;
+}

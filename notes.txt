@@ -1,0 +1,57 @@
+Background:
+* This project is not complete! *
+I recently got exposed to the stock market. With the recent GameStop and AMC shorting.
+I thought it would be fun to build a dashboard to look at my portfolio. I recently 
+fell in love with the Neumorphism design style. So I decided to put the two together!
+This was a quick over the weekend fun project for myself. Therefore, did not fully design
+or thought the whole project out. This is not my real portfolio, just meme stocks! :)
+I thought I would share this project with you because it was my most recent project 
+and shows a bit of what I can do! 
+
+This project uses functional components. I did not implement Redux for this project. I
+used the hook useReducer() because I wanted to practice hooks. I thought the use of 
+useReducer hook can simulate part of my Redux experience. If you would like to see 
+Redux, I could quickly put a project together and send it over. All my Redux projects 
+were for companies and I do not have access/can't share their codebase.
+
+If there are things you wish to see more of or wonder why I chose certain practices, please 
+feel free to ask!
+
+NOTES:
+- DATA: All the data in the Data folder are placeholders for what would actually be sent
+    from the backend. They are my format for my API calls. I also planned to have all the
+    calculations to be done on the backend just like a normal server-side rendering should be.
+    For now it is hardcoded on the frontend. 
+
+- API: I also planned to use an API to get the latest stock market data which is why some 
+    areas are left empty. Another API I would be using is from the brokerage firm that has my portfolio.
+    This API would be used to get my up-to-date portfolio.
+
+- DARK MODE: I've never done dark/light mode. I wasn't sure what the common practice for this was.
+    I decided to just stick to pure css/react/javascript. The different options I thought
+    of were:
+    => styled-components
+    => render the two different (light/dark) html/css separately. 
+        ex return (dark mode div) vs return (light mode div) 
+    => have conditional on the css name. 
+        ex. isDarkModeOn ? 'dark-mode-css' : 'light-mode-css'
+    
+    I decided to go mix of rendering the two different html/css and conditional css names.
+    The reason was because for styled-components, I would still have to do conditional on
+    css names. I already had all the css done for light mode at this point. I would render 
+    the html/css separately when pretty much all the tags needed to be changed. I know this 
+    is not clean code. However, I never planned to release this or become anything.
+    Just wanted to practice hooks and design a product with Neumorphism.
+    
+    WHAT I WOULD HAVE DONE DIFFERENTLY FOR DARK/LIGHT MODE
+        - PLANNING: I would have planned the entire project out first. I decided to build this on a
+        saturday morning and pump it out ASAP just for fun. I never intended to build
+        light/dark mode. After the thought came to my mind, I had already built pretty much
+        the entire thing. But I was excited to build it because I never done it before.
+    
+        - RESEARCH: I would have spent more time researching what the common practice for this is.
+    
+- CHARTS: I would create a dynmaic pie/table chart for more data analysis charts/graphs. Right now,
+    I have it dynamically displaying the data, however as the project will contain more charts/graphs, I 
+    could make all the charts/graph dynamic to keep the whole project consistent.
+
