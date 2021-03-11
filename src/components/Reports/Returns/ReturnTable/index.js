@@ -19,8 +19,8 @@ const tableHeader = [
 
 const ReturnTable = () => {
     const dataContext = useContext(DataContext);
-    // const data = require('../../../../Data/qqq');
-
+    const stockMarket = dataContext.state.currentStockValue.length ? dataContext.state.currentStockValue[0] : null;
+    
     return (
         <div className='return-table-container'>
             <table className={dataContext.state.darkMode 
@@ -70,9 +70,8 @@ const ReturnTable = () => {
                                         ${stock.averagePrice.toFixed(2)}
                                     </td>
                                     <td className='data'>
-                                        {/* 
-                                            API CURRENT PRICE
-                                        */}
+                                        {/* API CURRENT PRICE */}
+                                        ${stockMarket ? Number(stockMarket.price).toFixed(2) : null}
                                     </td>
                                     <td className='data'>
                                         ${positionCost}
@@ -81,14 +80,21 @@ const ReturnTable = () => {
                                         {/* 
                                             MARKETVALUE = API CURRENT PRICE * {stock.quanity} 
                                         */}
+                                        ${stockMarket ? (Number(stockMarket.price) * stock.quanity).toFixed(2) : null}
                                     </td>
                                     <td className='data'>
                                         {/* 
                                             P&L = {positionCost} - API CURRENT PRICE * {stock.quanity} 
                                         */}
+                                        {stockMarket ? (positionCost - Number(stockMarket.price) * stock.quanity).toFixed(0) : null}
                                     </td>
                                     <td className='data'>
                                         {/* FIGURE OUT % RETURN */}
+                                        {
+                                            stockMarket
+                                            ? ((Number(stockMarket.price) * stock.quanity) / (stock.averagePrice  * stock.quanity)).toFixed(2) * 100
+                                            : null
+                                        }
                                     </td>
                                     <td className='data'>
                                         {/* {MARKETVALUE / dataContext.state.account.totalInvestment} */}

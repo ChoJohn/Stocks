@@ -32,6 +32,7 @@ const DividendTable = () => {
     const dataContext = useContext(DataContext);
 
     const dividendTotal = dividendCalculator(dataContext.state.stocks);
+    const stockMarket = dataContext.state.currentStockValue.length ? dataContext.state.currentStockValue[0] : null;
 
     return (
         <div className='dividend-table-container'>
@@ -53,6 +54,7 @@ const DividendTable = () => {
                     {
                         dataContext.state.stocks.map((stock, index) => {
                             if (stock.dividendYield === 0) return null;
+                            const positionCost = (stock.quanity * stock.averagePrice).toFixed(2);
                             return (
                                 <tr key={index}>
                                     <td className='data-company'>
@@ -83,6 +85,7 @@ const DividendTable = () => {
                                         {/* 
                                             API CURRENT PRICE
                                         */}
+                                        ${stockMarket ? Number(stockMarket.price).toFixed(2) : null}
                                     </td>
                                     <td className='data'>
                                         {stock.dividendYield}
@@ -92,19 +95,23 @@ const DividendTable = () => {
                                     </td>
                                     <td className='data'>
                                         {/* 
-                                            P&L = {positionCost} - API CURRENT PRICE * {stock.quanity} 
+                                            MARKETVALUE
                                         */}
+                                        ${stockMarket ? (Number(stockMarket.price) * stock.quanity).toFixed(2) : null}
                                     </td>
                                     <td className='data'>
-                                        {/* FIGURE OUT % dividend */}
+                                        {/* 
+                                            P&L = {positionCost} - API CURRENT PRICE * {stock.quanity} 
+                                        */}
+                                        {stockMarket ? (positionCost - Number(stockMarket.price) * stock.quanity).toFixed(0) : null}
                                     </td>
                                     <td className='data'>
                                         {/* replace stock.value with API CURRENT PRICE */}
-                                        {(stock.value / dividendTotal * 100).toFixed(2)}%
+                                        {stockMarket ? (Number(stockMarket.price) / dividendTotal * 100).toFixed(2) : null}
                                     </td>
                                     <td className='data'>
                                         {/* {MARKETVALUE / dataContext.state.account.totalInvestment} */}
-                                        {(stock.value / dataContext.state.account.totalInvestment * 100).toFixed(2)}%
+                                        {(stock.value / dataContext.state.account.totalInvestment * 100).toFixed(2)}
                                     </td>
                                 </tr>
                             )

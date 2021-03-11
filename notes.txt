@@ -1,3 +1,66 @@
+* PART 2 *
+API calls
+The API I'm using is a free API therefore has limitations.
+Limitations:
+- Only can make 5 call per 1min
+- The API they have only allows to get 1 stock and discontinued multiple stock API
+- Can't retrieve latest data. Only the data after market close
+
+From your email, it sounds like you are interested to see if I can integrate an API.
+So, I made some choices based on the limitation and time constraint to try and demonstrate
+as much as I can.
+
+Again, happy to go over all my decisons and go more into detail over email/call.
+
+SECTION 1:
+LOCATION: containers/Dashbaord.jsx line 57.
+DETAIL: API call to get all the stock's 'latest' data.
+ISSUE: Can only get 1 stock per API call. 
+DECISION: For the sake of demonstrating my knowledge. I decided to just do 1 stock call.
+    In this api call, I am using only 'IBM' because the API I'm using has a demo call I 
+    can use as many times as I want. 
+    Because the API can only retrieve 1 stock. My real solution would be to handle all
+    this in the backend. Because the API gets the day summary. I would have a cron job to
+    retrieve all the stocks after the market closes. Then in the backend format all the 
+    stocks' data and send it to the frontend. That way, the frontend would have all the
+    stocks' data from one API call that's made to the backend.
+
+SECTION 2:
+LOCATION: api/networks.js line 33.
+DETAIL: Using demo api call because of the limitation of 5 call per 1min.
+ISSUE: Limitation stated in DETAIL
+DECISION: I decided to use the demo api call because of the limitations. Since you are 
+    looking for how I would write an utility function to fetch multiple API calls, I have
+    the actualy fetch call I would be making below commented out.
+
+SECTION 3:
+LOCATION: api.networks.js line 1.
+DETAIL: Environment variables.
+ISSUE: Environment variables should not be in Github.
+DECISION: For the sake of this challenge, I hard coded the variables that would be in 
+    env file. I am comfortable sharing the API key for alpha vantage. However, things
+    like the access token for my broker API calls are another story. I commented out
+    the way I would name and call the environment variables.
+
+
+NOTES:
+Task 1: You can find the API utility functions in api/networks.js
+Task 2: You can see I have successfully retrieved the data in containers/Dashboard.jsx.
+    And rendered it in the tables in the Reports components.
+Task 3: I formatted and stored the retrieved data in Dashboard.jsx.
+
+I decided to have a folder called api and create individual api files for api calls from
+different api endpoints. What I would have done is handle all this in the backend. Then 
+create new files for each page to keep everything organized (ex. Reports, Overview, etc.).
+This was my first time integrating API with functional components. I am more experienced
+using Actions/Sagas/Redux. I tried to created it based on that frame.
+
+I only implemented using the API to get the 'latest' stock. I could not get the access
+token from my broker. However, I believe this demonstrates what you wanted to see.
+I have it set up so that I would be making API calls similarly. 
+
+
+* PART 1 *
 Background:
 * This project is not complete! *
 I recently got exposed to the stock market. With the recent GameStop and AMC shorting.
